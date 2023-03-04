@@ -51,7 +51,7 @@ def unique(input_list):
 #input parameters: input_list
 
 # %%
-def fletten(input_list):
+def flatten(input_list):
     flist=[]
     for x in input_list:
         for y in x:
