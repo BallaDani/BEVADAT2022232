@@ -17,7 +17,7 @@ import numpy as np
 #create_array()
 
 # %%
-def create_array(size:np.int128)->np.array:
+def create_array(size=(2,2))->np.array:
     array=np.array(size)
     return array
 
@@ -28,7 +28,7 @@ def create_array(size:np.int128)->np.array:
 #set_one()
 
 # %%
-def ste_one(input_array:np.array)->np.array:
+def set_one(input_array:np.array)->np.array:
     np.fill_diagonal(input_array,1)
     return input_array    
         
@@ -41,7 +41,7 @@ def ste_one(input_array:np.array)->np.array:
 # do_transpose()
 
 # %%
-def do_transpose(input_matrix)->np.array:
+def do_transpose(input_matrix:np.array)->np.array:
     input_matrix=np.transpose(input_matrix)
     return input_matrix
     
@@ -54,8 +54,8 @@ def do_transpose(input_matrix)->np.array:
 
 # %%
 def round_array(array, n:int=2)->np.array:
-    input_list=np.round(array,n)
-    return
+    
+    return np.round(array,n)
 
 # %%
 # Készíts egy olyan függvényt, ami a bementként kapott 0 és 1 ből álló tömben a 0 - False-ra, az 1 True-ra cserélni
@@ -65,7 +65,7 @@ def round_array(array, n:int=2)->np.array:
 
 # %%
 
-def bool_array(array)->np.array:
+def bool_array(array:np.array)->np.array:
     array=np.array(array,dtype=bool)
     return array
     
