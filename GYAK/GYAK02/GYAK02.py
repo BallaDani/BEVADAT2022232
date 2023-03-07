@@ -1,0 +1,109 @@
+# %%
+import numpy as np
+
+# %%
+#FONTOS!!!
+
+# CSAK OTT LEHET HASZNÁLNI FOR LOOP-OT AHOL A FELADAT KÜLÖN KÉRI!
+# [1,2,3,4] --> ezek az értékek np.array-ek. Ahol listát kérek paraméterként ott külön ki fogom emelni!
+# Ha végeztél a feladatokkal, akkor notebook-ot alakítsd át .py.
+# A FÁJLBAN CSAK A FÜGGVÉNYEK LEGYENEK! (KOMMENTEK MARADHATNAK)
+
+# %%
+#Készíts egy függvényt ami létre hoz egy nullákkal teli numpy array-t.
+#Paraméterei: mérete (tuple-ként), default mérete pedig legyen egy (2,2)
+#Be: (2,2)
+#Ki: [[0,0],[0,0]]
+#create_array()
+
+# %%
+def create_array(size:np.int128)->np.array:
+    array=np.array(size)
+    return array
+
+# %%
+#Készíts egy függvényt ami a paraméterként kapott array-t főátlóját feltölti egyesekkel
+#Be: [[1,2],[3,4]]
+#Ki: [[1,2],[3,1]]
+#set_one()
+
+# %%
+def ste_one(input_array:np.array)->np.array:
+    array=np.array(input_array)
+    i=0
+    for x in array:
+        x[i]=1
+        i+=1
+    return array    
+        
+        
+
+# %%
+# Készíts egy függvényt ami transzponálja a paraméterül kapott mártix-ot:
+# Be: [[1, 2], [3, 4]]
+# Ki: [[1, 2], [3, 4]]
+# do_transpose()
+
+# %%
+def do_transpose(input_list)->np.array:
+    tList = np.array([0 for x in range(len(input_list))] for y in range(len(input_list[0]))) 
+    for i, x in enumerate(input_list):
+        for j, y in enumerate(x):
+            tList[j][i] = y        
+    return tList
+
+# %%
+# Készíts egy olyan függvényt ami az array-ben lévő értékeket N tizenedjegyik kerekíti, ha nincs megadva ez a paraméter, akkor legyen az alapértelmezett a kettő 
+# Be: [0.1223, 0.1675], 2
+# Ki: [0.12, 0.17]
+# round_array()
+
+# %%
+def round_array(input_list)->np.array:
+    rounded=np.array(input_list)
+    for x in rounded:
+        np.round(x,2)
+    return rounded
+
+# %%
+# Készíts egy olyan függvényt, ami a bementként kapott 0 és 1 ből álló tömben a 0 - False-ra, az 1 True-ra cserélni
+# Be: [[1, 0, 0], [1, 1, 1],[0, 0, 0]]
+# Ki: [[ True False False], [ True  True  True], [False False False]]
+# bool_array()
+
+# %%
+
+def bool_array(input_list)->np.array:
+    boolarray=input_list
+    for x in boolarray:
+        for y in x:
+            if y==0:
+                boolarray[x]=False
+            else:
+                boolarray[y]=True    
+    return np.array(bool_array)
+
+
+
+# %%
+# Készíts egy olyan függvényt, ami a bementként kapott 0 és 1 ből álló tömben a 1 - False-ra az 0 True-ra cserélni
+# Be: [[1, 0, 0], [1, 1, 1],[0, 0, 0]]
+# Ki: [[ True False False], [ True  True  True], [False False False]]
+# invert_bool_array()
+
+# %%
+def invert_bool_array()->np.array:
+    return
+
+# %%
+# Készíts egy olyan függvényt ami a paraméterként kapott array-t kilapítja
+# Be: [[1,2], [3,4]]
+# Ki: [1,2,3,4]
+# flatten()
+
+
+# %%
+def flatten(input:np.array):
+    return input.flatten()
+
+
