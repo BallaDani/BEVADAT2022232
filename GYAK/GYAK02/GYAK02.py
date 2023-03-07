@@ -29,12 +29,8 @@ def create_array(size:np.int128)->np.array:
 
 # %%
 def ste_one(input_array:np.array)->np.array:
-    array=np.array(input_array)
-    i=0
-    for x in array:
-        x[i]=1
-        i+=1
-    return array    
+    np.fill_diagonal(input_array,1)
+    return input_array    
         
         
 
@@ -45,12 +41,10 @@ def ste_one(input_array:np.array)->np.array:
 # do_transpose()
 
 # %%
-def do_transpose(input_list)->np.array:
-    tList = np.array([0 for x in range(len(input_list))] for y in range(len(input_list[0]))) 
-    for i, x in enumerate(input_list):
-        for j, y in enumerate(x):
-            tList[j][i] = y        
-    return tList
+def do_transpose(input_matrix)->np.array:
+    input_matrix=np.transpose(input_matrix)
+    return input_matrix
+    
 
 # %%
 # Készíts egy olyan függvényt ami az array-ben lévő értékeket N tizenedjegyik kerekíti, ha nincs megadva ez a paraméter, akkor legyen az alapértelmezett a kettő 
@@ -59,11 +53,9 @@ def do_transpose(input_list)->np.array:
 # round_array()
 
 # %%
-def round_array(input_list)->np.array:
-    rounded=np.array(input_list)
-    for x in rounded:
-        np.round(x,2)
-    return rounded
+def round_array(array, n:int=2)->np.array:
+    input_list=np.round(array,n)
+    return
 
 # %%
 # Készíts egy olyan függvényt, ami a bementként kapott 0 és 1 ből álló tömben a 0 - False-ra, az 1 True-ra cserélni
@@ -73,16 +65,10 @@ def round_array(input_list)->np.array:
 
 # %%
 
-def bool_array(input_list)->np.array:
-    boolarray=input_list
-    for x in boolarray:
-        for y in x:
-            if y==0:
-                boolarray[x]=False
-            else:
-                boolarray[y]=True    
-    return np.array(bool_array)
-
+def bool_array(array)->np.array:
+    array=np.array(array,dtype=bool)
+    return array
+    
 
 
 # %%
@@ -92,8 +78,10 @@ def bool_array(input_list)->np.array:
 # invert_bool_array()
 
 # %%
-def invert_bool_array()->np.array:
-    return
+def invert_bool_array(array)->np.array:
+    array=np.invert(np.array(array,dtype=bool))
+    
+    return array
 
 # %%
 # Készíts egy olyan függvényt ami a paraméterként kapott array-t kilapítja
