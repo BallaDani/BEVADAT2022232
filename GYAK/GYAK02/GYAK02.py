@@ -78,7 +78,7 @@ def bool_array(array:np.array)->np.array:
 # invert_bool_array()
 
 # %%
-def invert_bool_array(array)->np.array:
+def invert_bool_array(array:np.array)->np.array:
     array=np.invert(np.array(array,dtype=bool))
     
     return array
