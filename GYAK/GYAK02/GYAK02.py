@@ -18,7 +18,7 @@ import numpy as np
 
 
 def create_array(size=(2,2))->np.array:
-    array=np.array(size)
+    array=np.zeros(size)
     return array
 
 
