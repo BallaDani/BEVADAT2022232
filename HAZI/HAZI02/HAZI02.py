@@ -23,8 +23,9 @@ def column_swap(input:np.array)->np.array:
 
 
 
+
 def compare_two_array(input1:np.array,input2:np.array) ->np.array:
-    return (np.where(np.equal(input1,input2)))[0]
+    return np.array(np.where(np.equal(input1,input2)))
 
 
 
@@ -166,8 +167,8 @@ def list_days(date1:np.datetime64,date2:np.datetime64)->np.array:
 
 
 def current_date():
-    return np.datetime64('now','D')
-
+    date=np.datetime64('now','D')
+    return np.datetime_as_string(date)
 
 # Írj egy olyan függvényt ami visszadja, hogy mennyi másodperc telt el 1970 január 01. 00:02:00 óta.
 # Be: 
