@@ -9,9 +9,9 @@ import numpy as np
 
 
 
-def column_swap(inputa:np.array)->np.array:
-    inputa[:, [2, 0]] = inputa[:, [0, 2]]
-    return inputa
+def column_swap(input:np.array)->np.array:    
+    return np.fliplr(input)
+
 
 
 #Készíts egy olyan függvényt ami összehasonlít két array-t és adjon vissza egy array-ben, hogy hol egyenlőek 
@@ -21,9 +21,10 @@ def column_swap(inputa:np.array)->np.array:
 # egyenlő elemszámúakra kell csak hogy működjön
 
 
-def compare_two_array(input1:np.array,input2:np.array) ->np.array:
-    return np.where(input1,input2)
 
+
+def compare_two_array(input1:np.array,input2:np.array) ->np.array:
+    return (np.where(np.equal(input1,input2)))[0]
 
 
 
@@ -165,11 +166,10 @@ def list_days(date1:np.datetime64,date2:np.datetime64)->np.array:
 
 
 def current_date():
-    return np.datetime64('today')
+    return np.datetime64('now','D')
 
 
-
-# Írj egy olyan függvényt ami visszadja, hogy mennyi másodperc telt el 1970 január 01. 00:00:00 óta.
+# Írj egy olyan függvényt ami visszadja, hogy mennyi másodperc telt el 1970 január 01. 00:02:00 óta.
 # Be: 
 # Ki: másodpercben az idó, int-é kasztolva
 # sec_from_1970()
@@ -178,8 +178,7 @@ def current_date():
 
 def sec_from_1970()->int:
     
-    date=(np.datetime64('now')-np.datetime64('1970-01-01'))
+    date=(np.datetime64('now')-np.datetime64('1970-01-01T00:02:00'))
     return int(date.item().total_seconds())
-
 
 
