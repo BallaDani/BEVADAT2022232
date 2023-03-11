@@ -8,6 +8,7 @@ import numpy as np
 # column_swap()
 
 
+
 def column_swap(inputa:np.array)->np.array:
     inputa[:, [2, 0]] = inputa[:, [0, 2]]
     return inputa
