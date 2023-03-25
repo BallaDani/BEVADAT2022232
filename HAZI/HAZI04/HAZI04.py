@@ -100,7 +100,7 @@ függvény neve: add_age
 def add_age(df_data):
     df_copy = df_data.copy()
     np.random.seed(42)
-    df_copy['age']=np.random.randint(18,66,df.shape[0])    
+    df_copy['age']=np.random.randint(18,67,df_copy.shape[0])    
     return df_copy
 
 
@@ -115,7 +115,7 @@ függvény neve: female_top_score
 
 def female_top_score(df_data):
      df_copy = df_data.copy()
-     df_copy["total"]=df['math score']+df['reading score']+df['writing score']
+     df_copy['total']=(df_copy['math score']+df_copy['reading score']+df_copy['writing score'])/300
      return tuple(df_copy.nlargest(1,'total').where(df['gender']=='female').values.tolist()[0][5:8])
 
 
@@ -139,7 +139,7 @@ függvény neve: add_grade
 def add_grade(df_data):
     df_copy = df_data.copy()
     grade=[]
-    df_copy['total']=(df['math score']+df['reading score']+df['writing score'])/300
+    df_copy['total']=(df_copy['math score']+df_copy['reading score']+df_copy['writing score'])/300
     for row in df_copy['total']:
         if row>0.90:grade.append('A')
         elif row>0.80:grade.append('B')
