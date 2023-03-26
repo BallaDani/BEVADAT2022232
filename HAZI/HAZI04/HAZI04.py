@@ -116,7 +116,7 @@ függvény neve: female_top_score
 def female_top_score(df_data):
      df_copy = df_data.copy()
      df_copy['total']=(df_copy['math score']+df_copy['reading score']+df_copy['writing score'])/300
-     return tuple(df_copy.nlargest(1,'total').where(df['gender']=='female').values.tolist()[0][5:8])
+     return tuple(df_copy.nlargest(1,'total').where(df_copy['gender']=='female').values.tolist()[0][5:8])
 
 
 
