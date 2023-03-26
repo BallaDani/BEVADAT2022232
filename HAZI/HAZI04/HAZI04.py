@@ -18,7 +18,7 @@ függvény neve: csv_to_df
 
 def csv_to_pd(path):
     data=pd.read_csv(path)
-    return pd.DataFrame(data)
+    return data
 #df=csv_to_pd("StudentsPerformance.csv")
 #print(df)
 
@@ -165,11 +165,17 @@ return type: matplotlib.figure.Figure
 függvény neve: math_bar_plot
 '''
 
+
+
 def math_bar_plot(df_data):
     df_copy = df_data.copy()    
     df_seged=df_copy.groupby('gender').mean()
     df_seged = df_seged.drop(df_seged.columns[[1,2 ]], axis=1)
-    fig=df_seged.plot(kind='bar',title='Average Math Score by Gender', ylabel='Math Score', xlabel='Gender')   
+    fig,ax=plt.subplots()
+    ax.bar(df_seged.index,df_seged['math score'])
+    ax.set_xlabel('Gender')
+    ax.set_ylabel('Math Score')
+    ax.set_title('Average Math Score by Gender')      
     return fig
 
 
@@ -190,10 +196,14 @@ függvény neve: writing_hist
 '''
 
 def writing_hist(df_data):
-    df_copy = df_data.copy() 
-    fig=df_copy['writing score'].plot(kind='hist', title='Distribution of Writing Scores')
-    fig.set_xlabel('Writing Score')
-    fig.set_ylabel('Number of Students')
+    df_copy = df_data.copy()
+    fig,ax=plt.subplots()   
+    ax.hist(df_copy['writing score'])
+    ax.set_xlabel('Writing Score')
+    ax.set_ylabel('Number of Students')
+    ax.set_title('Distribution of Writing Scores')
+    return fig
+
 
 
 ''' 
