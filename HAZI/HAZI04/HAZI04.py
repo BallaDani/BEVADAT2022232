@@ -16,9 +16,12 @@ return type: pandas.core.frame.DataFrame
 függvény neve: csv_to_df
 '''
 
-def csv_to_pd(path):
+def csv_to_df(path):
     data=pd.read_csv(path)
     return data
+
+
+
 #df=csv_to_pd("StudentsPerformance.csv")
 #print(df)
 
