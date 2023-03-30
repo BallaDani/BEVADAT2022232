@@ -9,7 +9,10 @@ class KNNClassifier:
         self.k = k
         self.test_split_ratio = test_split_ratio
 
-    
+    @property
+    def k_neighbours(self):
+        return self.k
+        
     @staticmethod
     def load_csv(self, csv_path:str) -> Tuple[np.ndarray,np.ndarray]:
         np.random.seed(42)
@@ -49,6 +52,4 @@ class KNNClassifier:
         conf_matrix = confusion_matrix(self.y_test,self.y_preds)
         sns.heatmap(conf_matrix,annot=True) 
 
-    @property
-    def k_neighbours(self):
-        return self.k
+   
