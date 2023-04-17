@@ -194,7 +194,7 @@ class DecisionTreeClassifier():
 
 
 
-data=pd.read_csv('data/NJ.csv')
+data=pd.read_csv('data\NJ.csv')
 
 data.head(2)
 
@@ -202,7 +202,7 @@ data.head(2)
 x=data.iloc[:,-1].values
 y=data.iloc[:,-1].values.reshape(-1,1)
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=.2,random_state=42)
-classifier=DecisionTreeClassifier(min_samples_split=7,max_depth=7)
+classifier=DecisionTreeClassifier(min_samples_split=5,max_depth=5)
 classifier.fit(x_train,y_train)
 y_pred=classifier.predict(x_test)
 print(accuracy_score(y_test,y_pred))
@@ -214,8 +214,10 @@ print(accuracy_score(y_test,y_pred))
 '''
 4. feladat:
 
-
-
+Az összes metódust először egy külön .ipynb fáljban írtam meg és próbáltam ki, minden onnan lett átmásolva.
+A legjobb accuracy eléréséhez először az órán használt 3-3 értékeket használtam, amivel kb.76%-os accuracy-t értem el
+innen egész számonkén haladva a legjobbat 5-5-tel produkálta a programom(kb.79%). A 6-nál nagyobb Max Depth értékeknél már hibát dobott.
+összességében viszonylag gyorsan végeztem a feladattal.
 
 
 
