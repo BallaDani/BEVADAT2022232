@@ -4,11 +4,8 @@ import numpy as np
 
 class ReLU():
     def forward_pass(self, x):
-        
-        if x<0:
-            return 0
-        else:
-            return x
+       return np.where(x>= 0,x,0)
+
 
 
 class Dense:
