@@ -1,5 +1,9 @@
 
 import tensorflow as tf
+from tensorflow import keras
+from keras import layers
+
+
 
 def mnist_digit_data():
    (train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()
@@ -10,10 +14,10 @@ def mnist_digit_data():
 
 
 def mnist_model():
-    model = tf.keras.Sequential()
-    model.add(tf.keras.keras.Input(shape=(28,28)))
-    model.add(tf.keras.layers.Dense(128,activation='relu'))
-    model.add(tf.keras.layers.Dense(10,activation='softmax'))
+    model = keras.Sequential()
+    model.add(keras.Input(shape=(28,28)))
+    model.add(layers.Dense(128,activation='relu'))
+    model.add(layers.Dense(10,activation='softmax'))
     return model
 
 
