@@ -19,11 +19,12 @@ def cifar100_model():
     return model
 
 def model_compile(model):
-    compiled=model.compile(optimizer='adam',loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),metrics=['accuracy'])
-    return compiled
+    model.compile(optimizer='adam',loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),metrics=['accuracy'])
+    return model
 
 def model_fit(model,epochs,train_images,train_labels, ):
-    return model.fit(train_images, train_labels, epochs=epochs)
+    model.fit(train_images, train_labels, epochs=epochs)
+    return model
 
 def model_evaluate(model, test_images, test_labels):
 
